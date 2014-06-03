@@ -1,0 +1,25 @@
+h1 {
+    font-family: marker felt, helvetica;
+    text-align: center;
+}
+#instructions {
+    font-family: chalkduster, times new roman;
+    text-align: center;
+}
+input.lemonBuy {
+    
+}
+.Buy {
+    width: 100 px;
+}
+.inputs {
+    position: relative;
+    left: 200px;
+    width: 190px;
+}
+input[type="submit"] {
+    float: right;
+}
+.buytextbox {
+    width: 100px
+}
