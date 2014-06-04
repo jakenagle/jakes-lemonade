@@ -2,8 +2,11 @@
 <html>
 <head>
     <style>
-    body {
-    background: url("http://www.moninstore.com/media/catalog/product/cache/1/image/500,500x/9df78eab33525d08d6e5fb8d27136e95/T/e/Tea-Lemonade2008-05-20_0023_1.png");
+body {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 h1 {
     font-family: marker felt, helvetica;
@@ -30,43 +33,47 @@ input[type="submit"] {
 .buytextbox {
     width: 100px
 }
-
     </style>
     <title>Jake's Lemonade</title>
     <h1>Jake's lemonade</h1>
 </head>
-<body>
+<body background="http://www.moninstore.com/media/catalog/product/cache/1/image/500,500x/9df78eab33525d08d6e5fb8d27136e95/T/e/Tea-Lemonade2008-05-20_0023_1.png">
     <p id="instructions">Welcome to Jake's lemonade! The rules are simple: Use the input boxes below to buy starting amount of lemons, sugar and cups to make your lemonade. You can spend up to $45, and can make more by selling lemonade each day for a price that you can set. Get started below!</p>
     <div class="inputs">
     <div class="Buy">
-        <input id="lemons" class="buytextbox" type="lemons" placeholder="Amount lemons">
+        <input id="lemons" class="buytextbox" placeholder="Amount lemons">
         <input type="submit" value="Buy lemons">
     </div>
     <div>
-        <input id="cups" class="buytextbox" type="cups" placeholder="Amount of cups">
+        <input id="cups" class="buytextbox" placeholder="Amount of cups">
         <input type="submit" value="Buy cups">
     </div>
     <div class="Buy">
-        <input id="sugar" class="buytextbox" type="sugar" placeholder="Amount of sugar">
+        <input id="sugar" class="buytextbox" placeholder="Amount of sugar">
         <input type="submit" value="Buy sugar">
     </div>
     <div>
-        <input id="lemonadePrice" class="buytextbox" type="sugar" placeholder="lemonade price">
+        <input id="lemonadePrice" class="buytextbox" placeholder="lemonade price">
         <input type="submit" value="Set price">
     </div>
     <div>
-        <input id="finalDay" class="buytextbox" type="finalDay" placeholder="For how many days would you like your game to last?">
-        <input id="submit" value="Set days">
+        <input id="finalDay" class="buytextbox" placeholder="For how many days would you like your game to last?">
+        <input type="submit" value="Set days">
     </div>
     </div>
     <!-- begin Javascript -->
     <script type="text/javascript">
-var amountLemons = document.getElementByID()"lemons")
+var amountLemons = document.getElementByID("lemons")
 while (amountLemons > 45) {
     document.getElementByID("introduction").innerHTML= "you cannot buy that many lemons! You only have 45 dollars to spend, and lemons cost 1 dollar apiece.");
     var amountLemons = document.getElementByID("lemons");
 } while (amountLemons > 43) {
-    document.getElementByID("introduction").innerHTML= "You cannot buy that many lemons! You won't have any money to buy enough cups or sugar to make any lemonade, and won't be able to play the game.";
+    document.getElementByID("introduction").innerHTML= "You cannot buy that many lemons! You won't have any money to buy enough cups or sugar to make any lemonade, and won't be able to play the g
+
+
+    VCcv
+    cvf
+    mname.";
     amountLemons = document.getElementByID("lemons")
 }
 var amountCups = document.getElementByID("cups")
