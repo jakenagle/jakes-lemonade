@@ -12,95 +12,59 @@ h1 {
     font-family: marker felt, helvetica;
     text-align: center;
 }
-#instructions {
+#introduction {
     font-family: chalkduster, times new roman;
     text-align: center;
-}
-input.lemonBuy {
-
-}
-.buytextbox {
-
 }
 .inputs {
     position: relative;
     left: 40%;
     width: 19%;
 }
-.submits {
-    float: right;
+.submit {
+    position: relative;
+    left: 44%;
 }
     </style>
-    <title>Jake's Lemonade</title>
-    <h1>Jake's lemonade</h1>
-</head>
-<body background="http://www.moninstore.com/media/catalog/product/cache/1/image/500,500x/9df78eab33525d08d6e5fb8d27136e95/T/e/Tea-Lemonade2008-05-20_0023_1.png">
-    <p id="instructions">Welcome to Jake's lemonade! The rules are simple: Use the input boxes below to buy starting amount of lemons, sugar and cups to make your lemonade. You can spend up to $45, and can make more by selling lemonade each day for a price that you can set. Get started below!</p>
-    <div class="inputs">
-    <div>
-        <input id="lemons" class="buytextbox" placeholder="Amount lemons">
-        <input type="submit" class="submits" value="Buy lemons">
-    </div>
-    <div>
-        <input id="cups" class="buytextbox" placeholder="Amount of cups">
-        <input type="submit" class="submits" value="Buy cups">
-    </div>
-    <div class="Buy">
-        <input id="sugar" class="buytextbox" placeholder="Amount of sugar">
-        <input type="submit" class="submits" value="Buy sugar">
-    </div>
-    <div>
-        <input id="lemonadePrice" class="buytextbox" placeholder="lemonade price">
-        <input type="submit" class="submits" value="Set price">
-    </div>
-  </div>
-    <div style="position: relative; left: 40%">
-        <input id="finalDay" size="40" class="buytextbox" placeholder="For how many days would you like your game to last?">
-        <input id="setDays" type="submit" value="Set days">
-    </div>
-    <!-- begin Javascript -->
-    <script type="text/javascript">
-var amountLemons = document.getElementByID("lemons")
+<script type="text/javascript">
+function begin() {
+var amountLemons = document.getElementById("lemons").value;
+var amountCups = document.getElementById("cups").value;
+var amountSugar = document.getElementById("sugar").value;
 while (amountLemons > 45) {
-    document.getElementByID("introduction").innerHTML= "you cannot buy that many lemons! You only have 45 dollars to spend, and lemons cost 1 dollar apiece.");
-    var amountLemons = document.getElementByID("lemons");
-} while (amountLemons > 43) {
-    document.getElementByID("introduction").innerHTML= "You cannot buy that many lemons! You won't have any money to buy enough cups or sugar to make any lemonade, and won't be able to play the g
-
-
-    VCcv
-    cvf
-    mname.";
-    amountLemons = document.getElementByID("lemons")
+document.getElementById("introduction").innerHTML= "you cannot buy that many lemons! You only have 45 dollars to spend, and lemons cost 1 dollar apiece.";
+var amountLemons = document.getElementById("lemons").value;
 }
-var amountCups = document.getElementByID("cups")
+while (amountLemons > 43) {
+document.getElementById("introduction").innerHTML= "You cannot buy that many lemons! You won't have any money to buy enough cups or sugar to make any lemonade, and won't be able to play the game.";
+amountLemons = document.getElementById("lemons").value;
+}
 while(amountCups > 45 - amountLemons) {
-    document.getElementByID("introduction").innerHTML="You cannot buy that many cups! You only have 45 dollars to spend, and cups cost 1 dollar apiece.");
-    var amountCups = document.getElementByID("cups")
-while (amountCups > 45 - amountLemons - 1) {
-    document.getElementByID("introduction").innerHTML="You cannot buy that many cups! You won't have any money to buy enough lemons or sugar to make any lemonade, and won't be able to play the game.";
-    amountCups = document.getElementByID("cups");
+document.getElementById("introduction").innerHTML="You cannot buy that many cups! You only have 45 dollars to spend, and cups cost 1 dollar apiece.";
 }
-var amountSugar = document.getElementByID("sugar");
+while (amountCups > 45 - amountLemons - 1) {
+document.getElementById("introduction").innerHTML="You cannot buy that many cups! You won't have any money to buy enough lemons or sugar to make any lemonade, and won't be able to play the game.";
+amountCups = document.getElementById("cups").value;
+}
 while (amountSugar > 45 - amountCups - amountLemons) {
-    document.getElemementbyID("introduction").innerHTML="You cannot buy that much sugar! You don't have enough money left.";
-    vamountSugar = document.getElementByID("sugar");
+document.getElemementbyID("introduction").innerHTML="You cannot buy that much sugar! You don't have enough money left.";
+vamountSugar = document.getElementById("sugar").value;
 }
 var money = 45 - amountLemons - amountCups - amountSugar;
 if (money >= 0) {
-    document.getElementByID("introduction").innerHTML="Great! you have started with " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar.");
-    var finalDay = getElementByID("finalDay");
-    var lemonadePrice = getElementByID("lemonadePrice");
+document.getElementById("introduction").innerHTML="Great! you have started with " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar.";
+var finalDay = document.getElementById("finalDay").value;
+var lemonadePrice = document.getElementById("lemonadePrice").value;
 } else {
-    alert("Unfortunately, there has been an error. Please reload the page.");
+alert("Unfortunately, there has been an error. Please reload the page.");
 }
-while (isNaN(lemonadePrice)) {
-    document.getElementByID("introduction").innerHTML="Uh-oh! Your lemonade price is not a number- please remove any words or symbols like '$'.";
-    lemonadePrice = document.getElementByID("lemonadePrice");
+if (isNaN(lemonadePrice)) {
+document.getElementById("introduction").innerHTML="Uh-oh! Your lemonade price is not a number- please remove any words or symbols like '$'.";
+lemonadePrice = document.getElementById("lemonadePrice").value;
 }
-while (lemonadePrice > .01) {
-    document.getElementByID("introduction").innerHTML="Uh-oh! You set your lemonade price to free, meaning you can't make any money! Please set your lemonade price to at least .01.";
-    lemonadePrice = document.getElementByID("lemonadePrice");
+while (lemonadePrice < .01) {
+document.getElementById("introduction").innerHTML="Uh-oh! You set your lemonade price to free, meaning you can't make any money! Please set your lemonade price to at least .01.";
+lemonadePrice = document.getElementById("lemonadePrice").value;
 }
 var dailyMoney = money;
 var day = 1;
@@ -113,91 +77,118 @@ console.log(weatherChooser);
 dailySales = 10;
 var weather = "normal";
 if (weatherChooser <= 3) {
-    weather = "stormy";
-    dailySales -= 5;
+weather = "stormy";
+dailySales -= 5;
 } else if (weatherChooser <= 9 && weatherChooser >= 6) {
-    weather = "beautiful";
-    dailySales += 5;
+weather = "beautiful";
+dailySales += 5;
 }
 if (lemonadePrice <= 0.50) {
-     dailySales += 5;
+ dailySales += 5;
 } else if (lemonadePrice <= 1) {
-     dailySales += 0;
+ dailySales += 0;
 }
 else if (lemonadePrice <= 2) {
-     dailySales -= 10;
+ dailySales -= 10;
 } else if (lemonadePrice > 3) {
-     dailySales = 0;
+ dailySales = 0;
 }
 while (amountLemons < dailySales || amountSugar < dailySales || amountCups < dailySales) {
-    if (amountLemons < amountSugar && amountLemons < amountCups) {
-        dailySales = amountLemons;
-    } else if (amountSugar < amountLemons && amountSugar < amountCups) {
-        dailySales = amountSugar;
-    } else {
-        dailySales = amountCups;
-    }
+if (amountLemons < amountSugar && amountLemons < amountCups) {
+    dailySales = amountLemons;
+} else if (amountSugar < amountLemons && amountSugar < amountCups) {
+    dailySales = amountSugar;
+} else {
+    dailySales = amountCups;
+}
 }
 if (lemonadePrice < 1 && lemonadePrice !== 0) {
-    dailyMoney = dailySales / lemonadePrice;
+dailyMoney = dailySales / lemonadePrice;
 } else {
-    dailyMoney = dailySales * lemonadePrice;
+dailyMoney = dailySales * lemonadePrice;
 }
 totalMoney += dailyMoney;
 amountLemons -= dailySales;
 amountCups -= dailySales;
 amountSugar -= dailySales;
-    if (day === 1) {
-        document.getElementByID("introduction").innerHTML="You completed day " + day + "! Today, the weather was " + weather + ". Your daily sales added up to $" + dailyMoney + ". You now have " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar. To change any settings or add resources, type in numbers into the boxes below.";
-        var lemonsBought = document.getElementByID("lemons");
-        amountLemons = Math.round(amountLemons) + Math.round(lemonsBought);
-        if(lemonsBought === "") {
-          lemonsBought = 0;
-        }
-        totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(lemonsBought * 100) / 100;
-        var cupsBought = document.getElementByID("cups");
-        if(cupsBought === ""){
-          cupsBought = 0;
-        }
-        amountCups = Math.round(amountCups) + Math.round(cupsBought);
-        totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(cupsBought * 100) / 100;
-        var sugarBought = document.getElementByID("sugar");
-        if(sugarBought === "") {
-          sugarBought = 0;
-        }
-       amountSugar = Math.round(amountSugar) + Math.round(sugarBought);
-       totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(sugarBought * 100) / 100;
-    } else {
-        document.getElementByID("introduction").innerHTML="You completed day " + day + "! Today, the weather was " + weather + ". Your daily sales added up to $" + dailyMoney + ", and your total sales added up to " + totalMoney + ". You now have " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar. To change any settings or add resources, type in numbers into the boxes below.";
-        var lemonsBought = document.getElementByID("lemons");
-        amountLemons = Math.round(amountLemons) + Math.round(lemonsBought);
-        if(lemonsBought === "") {
-          lemonsBought = 0;
-        }
-        totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(lemonsBought * 100) / 100;
-        var cupsBought = document.getElementByID("cups");
-        if(cupsBought === ""){
-          cupsBought = 0;
-        }
-        amountCups = Math.round(amountCups) + Math.round(cupsBought);
-        totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(cupsBought * 100) / 100;
-        var sugarBought = document.getElementByID("sugar");
-        if(sugarBought === "") {
-          sugarBought = 0;
-        }
-       amountSugar = Math.round(amountSugar) + Math.round(sugarBought);
-       totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(sugarBought * 100) / 100;
+if (day === 1) {
+    document.getElementById("introduction").innerHTML="You completed day " + day + "! Today, the weather was " + weather + ". Your daily sales added up to $" + dailyMoney + ". You now have " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar. To change any settings or add resources, type in numbers into the boxes below.";
+    var lemonsBought = document.getElementById("lemons").value;
+    amountLemons = Math.round(amountLemons) + Math.round(lemonsBought);
+    if(lemonsBought === "") {
+      lemonsBought = 0;
     }
-    if (day !=== finalDay) {
-var lemonadePrice2 = prompt ("Would you like to change your lemonade price?");
-  }
+    totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(lemonsBought * 100) / 100;
+    var cupsBought = document.getElementById("cups").value;
+    if(cupsBought === ""){
+      cupsBought = 0;
+    }
+    amountCups = Math.round(amountCups) + Math.round(cupsBought);
+    totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(cupsBought * 100) / 100;
+    var sugarBought = document.getElementById("sugar").value;
+    if(sugarBought === "") {
+      sugarBought = 0;
+    }
+   amountSugar = Math.round(amountSugar) + Math.round(sugarBought);
+   totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(sugarBought * 100) / 100;
+} else {
+    document.getElementById("introduction").innerHTML="You completed day " + day + "! Today, the weather was " + weather + ". Your daily sales added up to $" + dailyMoney + ", and your total sales added up to " + totalMoney + ". You now have " + amountLemons + " lemons, " + amountCups + " cups, and " + amountSugar + " sugar. To change any settings or add resources, type in numbers into the boxes below.";
+    var lemonsBought = document.getElementById("lemons").value;
+    amountLemons = Math.round(amountLemons) + Math.round(lemonsBought);
+    if(lemonsBought === "") {
+      lemonsBought = 0;
+    }
+    totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(lemonsBought * 100) / 100;
+    var cupsBought = document.getElementById("cups").value;
+    if(cupsBought === ""){
+      cupsBought = 0;
+    }
+    amountCups = Math.round(amountCups) + Math.round(cupsBought);
+    totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(cupsBought * 100) / 100;
+    var sugarBought = document.getElementById("sugar").value;
+    if(sugarBought === "") {
+      sugarBought = 0;
+    }
+   amountSugar = Math.round(amountSugar) + Math.round(sugarBought);
+   totalMoney = Math.round(totalMoney * 100) / 100 - Math.round(sugarBought * 100) / 100;
+}
+if (day !== finalDay) {
+  var lemonadePrice2 = document.getElementById("lemonadePrice").value;
+}
 if(!isNaN(lemonadePrice2)) {
-    lemonadePrice = lemonadePrice2;
+  lemonadePrice = lemonadePrice2;
 }
-}
+
 day++;
 }
 confirm ("Congradulations! You finished day " + finalDay + " ! That means you finished the game!");
-    </script>
+}
+</script>
+    <title>Jake's Lemonade</title>
+</head>
+<body background="http://www.moninstore.com/media/catalog/product/cache/1/image/500,500x/9df78eab33525d08d6e5fb8d27136e95/T/e/Tea-Lemonade2008-05-20_0023_1.png">
+  <h1>Jake's lemonade</h1>
+    <p id="introduction">Welcome to Jake's lemonade! The rules are simple: Use the input boxes below to buy starting amount of lemons, sugar and cups to make your lemonade. You can spend up to $45, and can make more by selling lemonade each day for a price that you can set. Get started below!</p>
+    <div class="inputs">
+    <div>
+        <input id="lemons" class="buytextbox" placeholder="Amount lemons">
+    </div>
+    <div>
+        <input id="cups" class="buytextbox" placeholder="Amount of cups">
+    </div>
+    <div class="Buy">
+        <input id="sugar" class="buytextbox" placeholder="Amount of sugar">
+    </div>
+    <div>
+        <input id="lemonadePrice" class="buytextbox" placeholder="Lemonade price">
+    </div>
+
+    <div>
+        <input id="finalDay" class="buytextbox" placeholder="Game length (days)">
+    </div>
+  </div>
+    <div>
+        <input class="submit" onclick="begin();" type="submit" value="Begin!">
+    </div>
 </body>
 </html>
